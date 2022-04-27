@@ -12,7 +12,7 @@ def index(request):
         project.title = request.POST['title']
         project.message = request.POST['message']
         project.save()
-        messages.success(request, "Your Information has been successful submited")
+        messages.success(request, "Your Information has been successful submited, You will be contacted shortly")
         return redirect('index')
         
     return render(request, 'index.html')

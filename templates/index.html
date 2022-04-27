@@ -31,6 +31,20 @@
 
       <h1>Bantuwares</h1>
       <h2>Welcome to Bantuwares Student Edition</h2>
+      {% if messages %}
+      {% for message in messages %}
+          {% if message.tags == 'error' %}
+          <div id="noto" style="width: 50%;" class=" rounded-pill text-center alert alert-danger alert-dismissible fade show" role="alert">
+              {{message}}   
+          </div>
+          {% endif %}
+          {% if message.tags == 'success' %}
+          <div id="noto" style="width: 50%;"  class=" rounded-pill text-center alert alert-success alert-dismissible fade show" role="alert">
+              {{message}}
+          </div>
+          {% endif %}
+      {% endfor %}
+    {% endif %}
       <div class="countdown d-flex justify-content-center" data-count="2022/5/5">
         <div>
           <h3>%d</h3>
