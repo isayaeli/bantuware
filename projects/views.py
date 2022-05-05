@@ -1,9 +1,10 @@
 import imp
 from django.shortcuts import redirect, render
-from .models import Project
+from .models import Deadline, Project
 from django.contrib import messages
 # Create your views here.
 def index(request):
+    deadline =  Deadline.objects.all()[0]
     project = Project()
     if request.method == 'POST':
         project.name = request.POST['name']
@@ -14,5 +15,8 @@ def index(request):
         project.save()
         messages.success(request, "Your Information has been successful submited, You will be contacted shortly")
         return redirect('index')
+    context ={
+        'deadline':deadline
+    }
         
-    return render(request, 'index.html')
+    return render(request, 'index.html',context)
