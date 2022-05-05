@@ -45,7 +45,7 @@
           {% endif %}
       {% endfor %}
     {% endif %}
-  
+    {% if deadline.date %}
       <div class="countdown d-flex justify-content-center" data-count='{{deadline.date|date:"Y/m/d"}}'>
         <div>
           <h3>%d</h3>
@@ -64,6 +64,7 @@
           <h4>Seconds</h4>
         </div>
       </div>
+      {% endif %}
 
     </div>
   </header><!-- End #header -->

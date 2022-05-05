@@ -1,10 +1,10 @@
-import imp
 from django.shortcuts import redirect, render
 from .models import Deadline, Project
 from django.contrib import messages
 # Create your views here.
 def index(request):
-    deadline =  Deadline.objects.all()[0]
+    deadline =  Deadline.objects.all().last()
+    
     project = Project()
     if request.method == 'POST':
         project.name = request.POST['name']
